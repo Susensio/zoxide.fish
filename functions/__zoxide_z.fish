@@ -9,8 +9,8 @@ function __zoxide_z
         __zoxide_cd -
     else if test $argc -eq 1 -a -d $argv[1]
         __zoxide_cd $argv[1]
-        else if set -l result (string match --groups-only --regex $completion_regex $argv[-1])
-            __zoxide_cd $result
+    else if set -l result (string match --groups-only --regex $completion_regex $argv[-1])
+        __zoxide_cd $result
     else
         set --local result (command zoxide query --exclude (__zoxide_pwd) -- $argv)
         and __zoxide_cd $result
